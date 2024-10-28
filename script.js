@@ -35,3 +35,19 @@ function capturarHorasEstacionamiento() {
 
     return horasEstacionado;
 }
+
+function calcularCostoEstacionamiento(horas) {
+    let costo;
+    if (horas < 2) {
+        costo = horas * 3000;
+    } else if (horas <= 5) {
+        costo = horas * 2500;
+    } else {
+        costo = horas * 2000;
+    }
+    return costo;
+}
+
+function mostrarTotalEstacionamiento(costo) {
+    console.log(`El costo del estacionamiento para este vehículo es: $${costo}`);
+}
