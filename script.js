@@ -51,3 +51,21 @@ function calcularCostoEstacionamiento(horas) {
 function mostrarTotalEstacionamiento(costo) {
     console.log(`El costo del estacionamiento para este vehículo es: $${costo}`);
 }
+
+let totalEstacionamiento = 0;
+
+if (inicioSesion()) {
+    let continuar = true;
+
+    while (continuar) {
+        let horas = capturarHorasEstacionamiento();
+        let costo = calcularCostoEstacionamiento(horas);
+        mostrarTotalEstacionamiento(costo);
+        totalEstacionamiento += costo;
+
+        let respuesta = prompt("¿Desea calcular para otro vehículo? (s/n):");
+        continuar = (respuesta.toLowerCase() === 's');
+    }
+
+    console.log(`El total acumulado del estacionamiento es: $${totalEstacionamiento}`);
+}
